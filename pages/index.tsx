@@ -1,7 +1,16 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import React from 'react'
+import { client } from '../services/contentful'
 
 const Home: NextPage = () => {
+  React.useEffect(() => {
+    const getIt = async () => {
+      const conteudo = await client.getEntries({'metadata.tags.sys.id[in]': 'pet'})
+      console.log(conteudo.items)
+    }
+    getIt()
+  }, [])
   return (
     <>
       <Head>
