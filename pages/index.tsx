@@ -29,7 +29,7 @@ const Home: NextPage = () => {
       <Box as="main">
         <Header />
         <Featuring />
-        <Grid maxW="auto" px={6} templateColumns='4fr 1fr' gap={6} >
+        <Grid maxW="auto" px={6} templateColumns='4fr 1fr' gap={6} pb={100} >
           <GridItem >
             <SearchBox />
             <CategoryNav />
