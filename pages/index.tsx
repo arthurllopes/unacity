@@ -1,6 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
+import CategoryNav from '../components/categoryNav'
+import Featuring from '../components/featuring'
+import Footer from '../components/footer'
+import Header from '../components/header'
+import ProductCardList from '../components/ProductCardList'
 import { client } from '../services/contentful'
 
 const Home: NextPage = () => {
@@ -19,7 +24,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        
+        <Header />
+        <Featuring />
+        <CategoryNav />
+        <ProductCardList />
+        <Footer />
       </main>
     </>
   )
