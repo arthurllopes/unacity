@@ -31,6 +31,8 @@ export const theme = extendTheme({
         },
         description: {
             fontWeight: '400',
+            color: '#838589',
+            fontSize: '0.875rem'
         },
     },
 })

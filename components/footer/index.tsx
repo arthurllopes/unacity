@@ -3,10 +3,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <Container maxW="auto" bg="gray.50" pt="auto" style={{position: 'absolute',
-      bottom: '0',
-      left: '0',
-      }}>
+    <Container maxW="auto" bg="gray.50" >
       <Box>
         <Center pt={4}>
           Orgulhosamente feito pela comunidade para a comunidade. 

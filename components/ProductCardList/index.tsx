@@ -1,8 +1,11 @@
+import { Box, Center } from '@chakra-ui/react'
 import React from 'react'
 
 const ProductCardList = () => {
   return (
-    <div>ProductCardList</div>
+    <Center h={400}>
+      ProductCardList
+    </Center>
   )
 }
 

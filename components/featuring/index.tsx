@@ -1,8 +1,11 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 const Featuring = () => {
   return (
-    <div style={{height: '800px'}}>Featuring</div>
+    <Box bg="white" borderRadius={4} h={150} display="flex" alignItems="center" justifyContent="center">
+        KIT CURRASCO
+    </Box>
   )
 }
 
