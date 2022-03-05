@@ -1,8 +1,17 @@
+import { GridItem } from '@chakra-ui/react'
 import React from 'react'
 
-const ProductCard = () => {
+type Props = {
+  product: any
+}
+const ProductCard = ({product}: Props) => {
   return (
-    <div>ProductCard</div>
+    <GridItem>
+      {product.fields.nome}
+      {product.fields.descricao}
+      
+    </GridItem>
+    
   )
 }
 

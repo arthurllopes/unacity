@@ -1,11 +1,25 @@
 import { Box, Center, Flex, HStack, Spacer, Text } from '@chakra-ui/react'
 import React from 'react'
 import CategoryNavItem from '../../fragments/categoryNavItem'
+import { client } from '../../services/contentful'
 
 const CategoryNav = () => {
-  
-  const categories = ['all', 'beleza', 'horto', 'saude', 'lanches', 'doces', 'pet', 'restaurante']
+  //abrir aba p/ ver todas as categorias
   const [seeAll, setSeeAll] = React.useState(false)
+
+  //receber todas categorias existentes
+  const [categories, setCategories] = React.useState<any[]>([])
+
+  React.useEffect(() => {
+    const getCategories = async () => {
+      const {items} = await client.getEntries({
+        content_type: 'categoria'
+      })
+      setCategories(items)
+    }
+    getCategories()
+  }, [])
+  
   return (
     <Box minW="400px">
       <Flex>
@@ -14,9 +28,19 @@ const CategoryNav = () => {
         <Text fontSize='md' color='blue' cursor="pointer" _hover={{ filter: "brightness(0.4)" }} >Ver todas</Text>
       </Flex>
       <HStack spacing={4} py={4} overflowX="scroll">
-        {categories.map((category) => (
-          <CategoryNavItem key={category} category={category} />
-        ))}
+        {categories?.map((category) => {
+          async function getImg (id: string) {
+              const asset = await client.getAsset(id)
+              .then((asset: any) => (asset.fields.file.url))
+              console.log(asset)
+              return asset
+          }
+          const imgUrl = getImg(`${category.fields.icon.sys.id}`)
+          const url = `https:${imgUrl}`
+          return (
+          <CategoryNavItem key={category.fields.id} category={category} url={url} />
+          )
+        })}
       </HStack>
     </Box>
   )
