@@ -27,7 +27,17 @@ const CategoryNav = () => {
         <Spacer />
         <Text fontSize='md' color='blue' cursor="pointer" _hover={{ filter: "brightness(0.4)" }} >Ver todas</Text>
       </Flex>
-      <HStack spacing={4} py={4} overflowX="scroll">
+      <HStack spacing={4} py={4} overflowX="scroll" sx={{
+    '&::-webkit-scrollbar': {
+      backgroundColor: `gray.100`,
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: `gray.300`,
+      borderRadius: '20px',
+      width: '40px',
+
+    },
+  }}>
         {categories?.map((category) => (
           <CategoryNavItem key={category.fields.id} category={category} />
           )

@@ -17,7 +17,7 @@ const ProductCardList = () => {
   return (
     <>
       {itemsByCategory.length > 0 ? (
-        <Grid templateColumns='repeat(3, 1fr)' justifyContent='center' gap={6} maxW='100%'>
+        <Grid templateColumns='repeat(3, 1fr)' justifyContent='center' pt={4} gap={6} maxW='100%'>
           {itemsByCategory?.map((product: any) => (
               <ProductCard key={product.sys.id} product={product}/>
           ))} 
