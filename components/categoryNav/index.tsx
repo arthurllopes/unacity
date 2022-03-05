@@ -28,19 +28,10 @@ const CategoryNav = () => {
         <Text fontSize='md' color='blue' cursor="pointer" _hover={{ filter: "brightness(0.4)" }} >Ver todas</Text>
       </Flex>
       <HStack spacing={4} py={4} overflowX="scroll">
-        {categories?.map((category) => {
-          async function getImg (id: string) {
-              const asset = await client.getAsset(id)
-              .then((asset: any) => (asset.fields.file.url))
-              console.log(asset)
-              return asset
-          }
-          const imgUrl = getImg(`${category.fields.icon.sys.id}`)
-          const url = `https:${imgUrl}`
-          return (
-          <CategoryNavItem key={category.fields.id} category={category} url={url} />
+        {categories?.map((category) => (
+          <CategoryNavItem key={category.fields.id} category={category} />
           )
-        })}
+        )}
       </HStack>
     </Box>
   )

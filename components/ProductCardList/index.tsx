@@ -11,7 +11,6 @@ const ProductCardList = () => {
     const getItemsByCategory = async (category: string) => {
       const {items} = await client.getEntries({'metadata.tags.sys.id[in]': `${category}`})
       setItemsByCategory(items)
-      console.log(items)
     }
     getItemsByCategory(category)
   }, [category])
@@ -20,9 +19,7 @@ const ProductCardList = () => {
       {itemsByCategory.length > 0 ? (
         <Grid templateColumns='repeat(3, 1fr)' justifyContent='center' gap={6} maxW='100%'>
           {itemsByCategory?.map((product: any) => (
-            <>
-            <ProductCard key={product.fields.nome} product={product}/>
-            </>
+              <ProductCard key={product.sys.id} product={product}/>
           ))} 
         </Grid>
       ) :

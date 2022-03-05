@@ -10,7 +10,7 @@ type NavigateContextProviderProps = {
 export const NavigateContext = createContext({} as NavigateContextType)
 
 export function NavigateContextProvider({children}: NavigateContextProviderProps) {
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState('pet')
 
     return (
         <NavigateContext.Provider value={{category, setCategory}} >
