@@ -3,6 +3,8 @@ import { createContext, ReactNode, useContext, useState } from "react";
 type NavigateContextType = {
     category: string,
     setCategory: any,
+    funcao: string,
+    setFuncao: any,
 };
 type NavigateContextProviderProps = {
     children: ReactNode;
@@ -11,9 +13,10 @@ export const NavigateContext = createContext({} as NavigateContextType)
 
 export function NavigateContextProvider({children}: NavigateContextProviderProps) {
     const [category, setCategory] = useState('pet')
+    const [funcao, setFuncao] = useState('piscina')
 
     return (
-        <NavigateContext.Provider value={{category, setCategory}} >
+        <NavigateContext.Provider value={{category, setCategory, funcao, setFuncao}} >
             {children}
         </NavigateContext.Provider>
     )

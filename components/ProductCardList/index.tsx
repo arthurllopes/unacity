@@ -8,11 +8,11 @@ const ProductCardList = () => {
   const {category} = useNavigate()
   const [itemsByCategory, setItemsByCategory] = React.useState([])
   React.useEffect(() => {
-    const getItemsByCategory = async (category: string) => {
+    const getItemsByCategory = async () => {
       const {items} = await client.getEntries({'metadata.tags.sys.id[in]': `${category}`})
       setItemsByCategory(items)
     }
-    getItemsByCategory(category)
+    getItemsByCategory()
   }, [category])
   return (
     <>
@@ -24,7 +24,7 @@ const ProductCardList = () => {
         </Grid>
       ) :
       <Center layerStyle="description" h={200}>
-        Ainda não há lojas cadastradas nesse segmento.
+        Ainda não há comércios cadastradas nesse segmento.
       </Center>
       }
     </>
