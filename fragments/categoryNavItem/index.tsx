@@ -14,7 +14,7 @@ const CategoryNavItem = ({category}: Props) => {
         
     }, [category])
   return (
-    <Box minW={160} bg={category?.fields.cor} cursor="pointer" display="flex" p={4} borderRadius={8} onClick={() => setCategory(category.fields.id)} >
+    <Box minW={160} bg={category?.fields.cor} boxShadow='md' cursor="pointer" display="flex" p={4} borderRadius={8} onClick={() => setCategory(category.fields.id)} >
         <Image src={`https:${category.fields.icon.fields.file.url}`} alt="Category" width={24} height={24} />
         <Text fontSize='md' layerStyle="text"  ml={3}>{category.fields.nome}</Text>
     </Box>

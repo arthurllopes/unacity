@@ -8,7 +8,7 @@ type Props = {
 const ProductCard = ({product}: Props) => {
   console.log(product)
   return (
-    <GridItem bg="white" borderRadius={8}>
+    <GridItem bg="white" borderRadius={8} boxShadow='xl'>
       {product.fields.nome}
       {product.fields.descricao}
       {product.fields.logo && <Image src={`https:${product?.fields?.logo?.fields?.file?.url}`} alt={product.fields.nome} width={100} height={100} />

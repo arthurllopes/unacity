@@ -7,7 +7,7 @@ type Props = {
 const ServiceNavItem = ({service}: Props) => {
   const {setFuncao} = useNavigate()
   return (
-    <Tab onClick={() => setFuncao(service.fields.titulo.toLowerCase())}>
+    <Tab bg={service.fields.cor} minW={120} onClick={() => setFuncao(service.fields.titulo.toLowerCase())}>
       {service.fields.titulo}
     </Tab>
   )

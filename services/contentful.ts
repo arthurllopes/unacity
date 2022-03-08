@@ -1,6 +1,6 @@
 const contentful = require('contentful') 
 
 export const client = contentful.createClient({
-    space: 'm58x0drmxrei',
-    accessToken: '-669sfTVgKcTBbACF4M50gYkKJyPP1niGOnP9Yj_s3w',
+    space: process.env.NEXT_PUBLIC_SPACE,
+    accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN,
 });
