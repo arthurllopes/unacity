@@ -17,11 +17,11 @@ const ContactPage = () => {
       <Box as="main" minH="100vh" maxW="100vw" display="flex" flexDirection="column" alignItems="center">
         <Header />
         <Box flex={1} display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
-          <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' pb={6}>
-            <Heading p={0}>Fale Conosco!</Heading>
+          <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' mt={2} pb={2}>
+            <Heading >Fale Conosco!</Heading>
             <Text textAlign='center' layerStyle="description">Entre em contato, dê sugestões, adicione seu negócio, anuncie e mais. Ficaremos felizes em receber sua mensagem.</Text>
           </Box>
-          <Box bg='white' h={300} boxShadow='xl' borderRadius={8} w='fit-content' alignSelf='center' display='flex' flexDirection={{base: 'column-reverse', sm: 'row'}} justifyContent='center' alignItems='center'>
+          <Box bg='white' mb={4}  h={{base: 'fit-content', md: '433px'}} boxShadow='xl' borderRadius={8} w='fit-content' alignSelf='center' display='flex' flexDirection={{base: 'column-reverse', md: 'row'}} justifyContent='center' alignItems='start'>
             <ContactInfo />
             <ContactForm />
           </Box>

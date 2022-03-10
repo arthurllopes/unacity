@@ -1,11 +1,14 @@
 import { Box } from '@chakra-ui/react'
+import Image from 'next/image'
 import React from 'react'
+import feiraBanner from '../../assets/banner_feira.jpg'
+
 
 const Featuring = () => {
   return (
-    <Box bg="white" borderRadius={4} h={150} display="flex" alignItems="center" justifyContent="center">
-        KIT CURRASCO
-    </Box>
+    <>
+      <Image src={feiraBanner} width={800} height={160} alt='Banner' layout="responsive" objectFit='cover' />
+    </>
   )
 }
 

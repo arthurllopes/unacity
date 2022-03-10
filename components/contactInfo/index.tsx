@@ -1,16 +1,20 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 
 const ContactInfo = () => {
   return (
-    <Box display='flex' flex={1} h='100%' p={4} flexDirection='column' bg='brand.purple' borderRadius={8} boxShadow='xl'>
+    <VStack spacing={4} alignItems='start' minH='100%' w={{base: '100%', md: 'auto'}} py={4} p={4} bg='brand.purple' borderRadius={8} boxShadow='xl'>
+      <Text textAlign='center' layerStyle="title">Contato:</Text>
         <Box>
-            Telefone: (21) 97002-1384
+          <Text layerStyle="text">Telefone:</Text>
+          <Text>(21) 97002-1384</Text>
+            
         </Box>
         <Box>
-            Email: arthurllopes10@gmail.com
+          <Text layerStyle="text">Email:</Text>
+            arthurllopes10@gmail.com
         </Box>
-    </Box>
+    </VStack>
   )
 }
 

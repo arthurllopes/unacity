@@ -3,9 +3,9 @@ import React from 'react'
 
 const Publicity = () => {
   return (
-    <Box bg="white" borderRadius={4} h="100%" >
+    <Box bg="white" display='flex' flexDirection='column' alignItems='center' justifyContent='center' borderRadius={8} h="360px" boxShadow='md'>
       <Center p={2}>
-        AUNUNCIE AQUI
+        ANUNCIE AQUI
       </Center>
       <Center layerStyle="description">
         Entre em contato para saber mais.
