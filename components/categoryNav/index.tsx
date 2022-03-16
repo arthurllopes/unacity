@@ -21,7 +21,7 @@ const CategoryNav = () => {
   }, [])
   
   return (
-    <Box minW="400px">
+    <Box minW="400px" py={8}>
       <Flex>
         <Text fontSize='2xl' layerStyle="title">Categorias</Text>
         <Spacer />

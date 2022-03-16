@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         <Grid templateColumns='5fr 2fr' gap={6} flex="1"  w="90vw">
           <GridItem py={6} colStart={0} colEnd={2} minW="400px"  >
             <Featuring />
-            <SearchBox />
+            {/*<SearchBox />*/}
             <CategoryNav />
             <ProductCardList />
           </GridItem >
@@ -37,6 +37,7 @@ const Home: NextPage = () => {
         </Grid>
         <Footer />
       </Box>
+      
     </>
   )
 }

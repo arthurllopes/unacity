@@ -11,7 +11,6 @@ type Props = {
 }
 const ProductCard = ({product}: Props) => {
   const router = useRouter()
-  const [delivery, setDelivery] = React.useState(true)
   return (
     <GridItem bg="white" borderRadius={8} boxShadow='xl' cursor='pointer' p={2} position='relative' onClick={() => router.push(`/store/${product.sys.id}`)}>
       <Flex alignItems='start' >
@@ -22,7 +21,7 @@ const ProductCard = ({product}: Props) => {
           <Text layerStyle='text' >{product.fields.nome}</Text>
           <Text layerStyle='description' pb={1}>{product.fields.descricao}</Text>
           <HourTag />
-          {delivery && <DeliveryTag />}
+          {product.fields.delivery && <DeliveryTag />}
         </Flex>
       </Flex>
       <Center py={4}>
