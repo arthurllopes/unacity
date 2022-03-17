@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <Container as="header" px={8} maxW="auto" maxH="80px" display="flex" alignItems="center" bg="white" >
         <Box className="unaLogo" mt={4} px={2}>
-          <Image src={unaLogo} width={100} height={65} alt="Logo" objectFit='cover'/>
+          <Image src={unaLogo} width={80} height={55} alt="Logo" objectFit='cover'/>
         </Box>
           <Spacer />
         {mobile ? (

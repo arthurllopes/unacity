@@ -21,7 +21,7 @@ const CategoryNav = () => {
   }, [])
   
   return (
-    <Box minW="400px" py={8}>
+    <Box py={6}>
       <Flex>
         <Text fontSize='2xl' layerStyle="title">Categorias</Text>
         <Spacer />
@@ -38,8 +38,8 @@ const CategoryNav = () => {
 
         },
       }}>
-        {categories?.map((category) => (
-          <CategoryNavItem key={category.fields.id} category={category} />
+        {categories?.map((item) => (
+          <CategoryNavItem key={item.fields.id} item={item} />
           )
         )}
       </HStack>

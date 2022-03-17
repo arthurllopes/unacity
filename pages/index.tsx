@@ -1,4 +1,4 @@
-import { Box, Container, Grid, GridItem } from '@chakra-ui/react'
+import { Box, Flex, Grid, GridItem } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
@@ -9,7 +9,7 @@ import Header from '../components/header'
 import ProductCardList from '../components/productCardList'
 import Publicity from '../components/publicity'
 import SearchBox from '../fragments/searchBox'
-import { client } from '../services/contentful'
+
 
 const Home: NextPage = () => {
   React.useEffect(() => {
@@ -24,17 +24,19 @@ const Home: NextPage = () => {
       </Head>
       <Box as="main" minH="100vh" maxW="100vw" display="flex" flexDirection="column" alignItems="center">
         <Header />
-        <Grid templateColumns='5fr 2fr' gap={6} flex="1"  w="90vw">
-          <GridItem py={6} colStart={0} colEnd={2} minW="400px"  >
+        <Flex flex="1" pt={6} flexDirection={{base: 'column', md:'row'}}  w="90%" alignItems="center" justifyContent='space-between'>
+          <Box w='100%' p={4}>
             <Featuring />
             {/*<SearchBox />*/}
-            <CategoryNav />
-            <ProductCardList />
-          </GridItem >
-          <GridItem py={6} colStart={2} colEnd={3} >
+          </Box >
+          <Box>
             <Publicity />
-          </GridItem >
-        </Grid>
+          </Box >
+        </Flex>
+        <Box w='90%'>
+          <CategoryNav />
+          <ProductCardList />
+        </Box>
         <Footer />
       </Box>
       

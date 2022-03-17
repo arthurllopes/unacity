@@ -11,7 +11,7 @@ type Props = {
 const Pagination = ({page, total, setPage, limitPerPage}: Props) => {
     const siblingsCount = 1;
 
-    function generatePagesArray (from, to) {
+    function generatePagesArray (from: number, to: number) {
         return (
             [...new Array(to - from)]
             .map((_, index) => (
@@ -33,7 +33,7 @@ const Pagination = ({page, total, setPage, limitPerPage}: Props) => {
   return (
     <Stack
       direction={["column", "row"]}
-      mt="8"
+      my="4"
       justify="space-between"
       align="center"
       spacing="6"

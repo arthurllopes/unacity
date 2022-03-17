@@ -12,7 +12,7 @@ type NavigateContextProviderProps = {
 export const NavigateContext = createContext({} as NavigateContextType)
 
 export function NavigateContextProvider({children}: NavigateContextProviderProps) {
-    const [category, setCategory] = useState('pet')
+    const [category, setCategory] = useState('restaurante')
     const [funcao, setFuncao] = useState('piscina')
 
     return (

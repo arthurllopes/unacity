@@ -4,6 +4,9 @@ import { theme } from '../styles/theme'
 import {NavigateContextProvider} from '../hooks/useNavigate'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  function reportWebVitals( metric: any) {
+    console.log(metric)
+  }
   return (
     <NavigateContextProvider>
       <ChakraProvider theme={theme} >
