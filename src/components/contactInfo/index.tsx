@@ -12,7 +12,7 @@ const ContactInfo = () => {
         </Box>
         <Box>
           <Text layerStyle="text">Email:</Text>
-            arthurllopes10@gmail.com
+            contato.unamar@gmail.com
         </Box>
     </VStack>
   )

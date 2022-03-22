@@ -1,5 +1,5 @@
 import { EmailIcon } from '@chakra-ui/icons';
-import { Box, Button, FormControl, FormLabel, HStack, Input, Select, Stack, Textarea, VStack } from '@chakra-ui/react'
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Button, Center, FormControl, FormLabel, HStack, Input, Select, Stack, Textarea, VStack } from '@chakra-ui/react'
 import React from 'react'
 
 const Messages = {
@@ -18,7 +18,8 @@ const ContactForm = () => {
   const [form, setForm] = React.useState({});
 
   const [response, setResponse] = React.useState<string>('');
-  
+  const [error, setError] = React.useState<boolean>(false);
+
   function handleFormChange (e: any) {
     const {id, value} = e.target
     setForm({...form, [id]: value})
@@ -26,39 +27,36 @@ const ContactForm = () => {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     console.log(form)
-
-    /*try {
+    try {
       setLoading(true);
 
-      const res = await fetch('process.env.NEXT_PUBLIC_CONTACT_URL', {
+      const res = await fetch('/api/email', {
         method: "POST",
-        body: JSON.stringify({
-          name,
-          text: message,
-          email,
-        }),
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(form),
       });
 
       if (res.status === 429) {
-        return setResponse({
-          title: "Error!",
-          body: Messages.RateLimit,
-        });
+        setError(true)
+        return setResponse(Messages.RateLimit)
       }
 
-      const data = await res.json();
-
-      if (data.status === "success") {
-        setForm();
+      if (res.status === 200) {
+        setForm({});
         setResponse(Messages.Success);
       } else {
+        setError(true)
         setResponse("Algo deu errado. Tente novamente mais tarde.");
       }
     } catch (e) {
       setResponse("Algo deu errado. Tente novamente mais tarde.")
+      setError(true)
     } finally {
       setLoading(false);
-    }*/
+    }
   }
   return (
     <>
@@ -103,9 +101,24 @@ const ContactForm = () => {
           </form>
         </Box>
       ) : (
-        <Box>
-          {response}
-        </Box>
+          <Alert
+            status={!error ? 'success' : 'error'}
+            variant='subtle'
+            flexDirection='column'
+            alignItems='center'
+            justifyContent='center'
+            textAlign='center'
+            minH='100%'
+            borderRadius='8px'
+          >
+            <AlertIcon boxSize='40px' />
+            <AlertTitle mt={4} mb={1} fontSize='lg'>
+              {!error ? 'Enviado!' : 'Oops!'}
+            </AlertTitle>
+            <AlertDescription maxWidth='sm'>
+              {response}
+            </AlertDescription>
+          </Alert>
       )}
     </>
 
