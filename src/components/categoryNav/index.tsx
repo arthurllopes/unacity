@@ -1,24 +1,23 @@
 import { Box, Center, Flex, HStack, Spacer, Text } from '@chakra-ui/react'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import CategoryNavItem from '../../fragments/categoryNavItem'
-import { client } from '../../services/contentful'
+import { getCategories } from '../../store/Category'
+import { RootState } from '../../store/configureStore'
 
 const CategoryNav = () => {
+  const {categories} = useSelector((state: RootState) => state.Category)
+  const dispatch = useDispatch()
   //abrir aba p/ ver todas as categorias
   const [seeAll, setSeeAll] = React.useState(false)
 
-  //receber todas categorias existentes
-  const [categories, setCategories] = React.useState<any[]>([])
-
   React.useEffect(() => {
-    const getCategories = async () => {
-      const {items} = await client.getEntries({
-        content_type: 'categoria'
-      })
-      setCategories(items)
+    //receber todas categorias existentes
+    //se ja foi feito uma vez, nao vai fazer o request novamente
+    if (!(categories.length > 0)) {
+      dispatch(getCategories())
     }
-    getCategories()
-  }, [])
+  }, [dispatch, categories])
   
   return (
     <Box py={6}>
@@ -38,8 +37,8 @@ const CategoryNav = () => {
 
         },
       }}>
-        {categories?.map((item) => (
-          <CategoryNavItem key={item.fields.id} item={item} />
+        {categories?.map((item: any) => (
+          <CategoryNavItem key={item.id} item={item} />
           )
         )}
       </HStack>
