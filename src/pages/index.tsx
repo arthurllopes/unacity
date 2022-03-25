@@ -1,7 +1,9 @@
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react'
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
+import { AppProps } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import CategoryNav from '../components/categoryNav'
 import Featuring from '../components/featuring'
 import Footer from '../components/footer'
@@ -9,12 +11,20 @@ import Header from '../components/header'
 import ProductCardList from '../components/productCardList'
 import Publicity from '../components/publicity'
 import SearchBox from '../fragments/searchBox'
+import { client } from '../services/contentful'
+import { getProducts, setInitialData, setProducts } from '../store/Category'
 
-
-const Home: NextPage = () => {
+type Props = {
+  initialData: any
+}
+const Home = ({initialData}: Props) => {
+  const dispatch = useDispatch()
+  //setar configs apos pegar a data inicial
   React.useEffect(() => {
-   
-  }, [])
+    dispatch(setProducts({items: initialData.items, total: initialData.total}))
+    dispatch(setInitialData(initialData))
+  }, [dispatch, initialData])
+
   return (
     <>
       <Head>
@@ -35,13 +45,19 @@ const Home: NextPage = () => {
         </Flex>
         <Box w='90%'>
           <CategoryNav />
-          <ProductCardList />
+          <ProductCardList data={initialData}/>
         </Box>
         <Footer />
       </Box>
       
     </>
   )
+}
+export const getStaticProps: GetStaticProps = async () => {
+  const initialData = await client.getEntries({content_type: 'barberin', 'limit': 12})
+  return {
+    props: { initialData },
+  }
 }
 
 export default Home

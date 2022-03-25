@@ -2,11 +2,11 @@ import { Box, Center, Flex, HStack, Spacer, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CategoryNavItem from '../../fragments/categoryNavItem'
-import { getCategories } from '../../store/Category'
+import { getCategories, setPage } from '../../store/Category'
 import { RootState } from '../../store/configureStore'
 
 const CategoryNav = () => {
-  const {categories} = useSelector((state: RootState) => state.Category)
+  const {categories, category} = useSelector((state: RootState) => state.Category)
   const dispatch = useDispatch()
   //abrir aba p/ ver todas as categorias
   const [seeAll, setSeeAll] = React.useState(false)
@@ -18,6 +18,11 @@ const CategoryNav = () => {
       dispatch(getCategories())
     }
   }, [dispatch, categories])
+
+  React.useEffect(() => {
+    //toda vez que mudar categoria, ir p pag 1
+    dispatch(setPage(1))
+  }, [dispatch, category])
   
   return (
     <Box py={6}>
@@ -37,6 +42,12 @@ const CategoryNav = () => {
 
         },
       }}>
+        <CategoryNavItem key='all' item={{
+          id: 'all',
+          cor: '#FFFF',
+          nome: 'TUDO'
+        }} />
+
         {categories?.map((item: any) => (
           <CategoryNavItem key={item.id} item={item} />
           )

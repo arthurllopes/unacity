@@ -5,7 +5,7 @@ import React from 'react'
 import unaLogo from '../../assets/unaLogo.png'
 
 const Header = () => {
-  const mobile = useBreakpointValue({ base: true, sm: false, md: false })
+  const mobile = useBreakpointValue({ base: true, md: false })
   return (
     <Container as="header" px={8} maxW="auto" maxH="80px" display="flex" alignItems="center" bg="white" >
         <Box className="unaLogo" mt={4} px={2}>

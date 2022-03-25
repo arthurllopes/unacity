@@ -7,13 +7,17 @@ import { getProducts } from '../../store/Category'
 import { RootState } from '../../store/configureStore'
 import Pagination from '../pagination'
 import ProductCard from '../productCard'
-
-const ProductCardList = () => {
+type Props = {
+  data: any
+}
+const ProductCardList = ({data}: Props) => {
   const {category, loading, products, page} = useSelector((state: RootState) => state.Category)
   const dispatch = useDispatch()
+
   React.useEffect(() => {
     dispatch(getProducts())
   }, [category, page, dispatch])
+  
   return (
     <>
       {loading ? (
@@ -21,9 +25,9 @@ const ProductCardList = () => {
           <CircularProgress isIndeterminate color='brand.purple' />
         </Center>
       ) : (
-        products.length > 0 ? (
+        (products?.length > 0 ) ? (
           <Grid templateColumns={{base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)'}} justifyContent='center' gap={6} minH={200} >
-            {products?.map((product: any) => (
+            {products.map((product: any) => (
                 <ProductCard key={product.sys.id} product={product}/>
             ))}
           </Grid>
@@ -33,7 +37,7 @@ const ProductCardList = () => {
           </Center>
         )
       )}
-      {products.length > 0 && <Pagination />}
+      {(products.length > 0) && <Pagination />}
     </>
   )
 }

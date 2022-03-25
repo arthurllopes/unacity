@@ -43,7 +43,7 @@ const Pagination = () => {
             <strong>{page === 1 ? 1 : (page * limitPerPage) - limitPerPage + 1 }</strong>-<strong>{(page * limitPerPage) < totalProducts ? (page * limitPerPage) : totalProducts}</strong> de <strong>{totalProducts}</strong>
         </Box>
         <Stack direction="row" spacing="2" alignItems='center'>
-                {!(page === 1) && <IconButton size="sm" fontSize="xs" width="4" aria-label='Próxima página' icon={<ArrowBackIcon />} colorScheme='purple' variant='outline' onClick={() => dispatch(setPage(page - 1))} />}
+                {!(page === 1) && <IconButton size="sm" fontSize="xs" width="4" aria-label='Próxima página' icon={<ArrowBackIcon />} colorScheme='teal' variant='outline' onClick={() => dispatch(setPage(page - 1))} />}
                 {page > (1 + siblingsCount) && (
                     <>
                         <ButtonFragment number={1} setPage={setPage} />
@@ -71,7 +71,7 @@ const Pagination = () => {
                         <ButtonFragment number={lastPage} setPage={setPage} />
                     </>
                 )}
-                {!(page === lastPage) && <IconButton size="sm" fontSize="xs" width="4" aria-label='Próxima página' icon={<ArrowForwardIcon />} colorScheme='purple' variant='outline' onClick={() => dispatch(setPage(page + 1))} />}
+                {!(page === lastPage) && <IconButton size="sm" fontSize="xs" width="4" aria-label='Próxima página' icon={<ArrowForwardIcon />} colorScheme='teal' variant='outline' onClick={() => dispatch(setPage(page + 1))} />}
         </Stack>
     </Stack>
   )

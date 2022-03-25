@@ -1,17 +1,19 @@
 import { Button } from '@chakra-ui/react'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
 const ButtonFragment = ({number, setPage, isCurrent}: any) => {
+    const dispatch = useDispatch()
     if (isCurrent) {
         return (
             <Button
               size="sm"
               fontSize="xs"
               width="4"
-              colorScheme="pink"
+              colorScheme="teal"
               disabled
               _disabled={{
-                bg: 'purple',
+                bg: 'teal',
                 cursor: 'default',
               }}
             >
@@ -25,11 +27,11 @@ const ButtonFragment = ({number, setPage, isCurrent}: any) => {
             size="sm"
             fontSize="xs"
             width="4"
-            bg="brand.purple"
+            bg="teal.100"
             _hover={{
-                bg: 'gray.500'
+                bg: 'teal.500'
             }}
-            onClick={() => setPage(number) }
+            onClick={() => dispatch(setPage(number)) }
         >
             {number}
         </Button>

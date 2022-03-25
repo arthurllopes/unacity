@@ -18,14 +18,14 @@ const ProductCard = ({product}: Props) => {
           {product.fields.logo && <Image src={`https:${product?.fields?.logo?.fields?.file?.url}`} alt={product.fields.nome} width={80} height={70} objectFit='cover' />}
         </Box>
         <Flex flexDirection='column' alignItems='start' ml={2}>
-          <Text layerStyle='text' >{product.fields.nome}</Text>
-          <Text layerStyle='description' pb={1}>{product.fields.descricao}</Text>
+          <Text>{product.fields.nome}</Text>
+          <Text layerStyle='description' pb={1}>{product.fields.titulo}</Text>
           <HourTag />
           {product.fields.delivery && <DeliveryTag />}
         </Flex>
       </Flex>
       <Center py={4}>
-          <Button w='70%' variant='solid' colorScheme='blue' >Saiba mais</Button>
+          <Button w='70%' variant='solid' colorScheme='teal' color='white' >Saiba mais</Button>
       </Center>
     </GridItem>
     

@@ -14,6 +14,7 @@ export const theme = extendTheme({
         global: {
             body: {
                 bg: 'gray.100',
+                fontWeight: '500'
             }
         }
 
@@ -24,10 +25,10 @@ export const theme = extendTheme({
     },
     layerStyles: {
         title: {
-          fontWeight: '700',
+          fontWeight: 'normal',
         },
         text: {
-            fontWeight: '500',
+            fontWeight: '200',
         },
         description: {
             fontWeight: '400',
