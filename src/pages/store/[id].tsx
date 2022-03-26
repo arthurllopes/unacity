@@ -28,6 +28,7 @@ const StorePage = () => {
   }, [id])
   React.useEffect(() => {
     console.log(data)
+
     
   }, [data])
   if (mobile) return <MobileStorePage />
@@ -35,7 +36,7 @@ const StorePage = () => {
     <VStack minH="100vh" >
       <Header />
       <VStack as="main" spacing='6' w="100%" flex={1} px={{base: '2', md: '4'}}>
-        <Stack align='start' p={8} direction={{base: 'column', xl: 'row'}}  borderBottom='1px solid #CBD5E0' >
+        <Stack align='start' p={8} flexDirection={{base: 'column', lg: 'row'}}  borderBottom='1px solid #CBD5E0' >
           <Flex align='center' justify='center' w='100%' pb={4}>
             <Box minW="120px">
               {data?.logo && <Image src={`https:${data?.logo?.fields?.file?.url}`} alt={data.nome} width={160} height={160} objectFit='cover' />}
