@@ -5,12 +5,16 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import DeliveryTag from '../../fragments/deliveryTag'
 import HourTag from '../../fragments/hourTag'
+import { useTime } from '../../hooks/useTime'
 
 type Props = {
   product: any
 }
 const ProductCard = ({product}: Props) => {
   const router = useRouter()
+  console.log(product)
+  const isOpen = useTime(product?.fields?.horario)
+
   return (
     <GridItem bg="white" borderRadius={8} boxShadow='xl' cursor='pointer' p={2} position='relative' onClick={() => router.push(`/store/${product.sys.id}`)}>
       <Flex alignItems='start' >
@@ -20,8 +24,12 @@ const ProductCard = ({product}: Props) => {
         <Flex flexDirection='column' alignItems='start' ml={2}>
           <Text>{product.fields.nome}</Text>
           <Text layerStyle='description' pb={1}>{product.fields.titulo}</Text>
-          <HourTag />
-          {product.fields.delivery && <DeliveryTag />}
+          {isOpen && <HourTag />}
+          {product.fields.delivery &&
+          <Box>
+            <DeliveryTag />
+          </Box> 
+          }
         </Flex>
       </Flex>
       <Center py={4}>

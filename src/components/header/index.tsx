@@ -8,11 +8,11 @@ const Header = () => {
   const mobile = useBreakpointValue({ base: true, md: false })
   return (
     <Container as="header" px={8} maxW="auto" maxH="80px" display="flex" alignItems="center" bg="white" >
-        <Box className="unaLogo" mt={4} px={2} cursor='pointer'>
-          <Link href="/" passHref>
+        <Link href="/" passHref>
+          <Box className="unaLogo" mt={4} px={2} cursor='pointer'>
             <Image src={unaLogo} width={80} height={55} alt="Logo" objectFit='cover'/>
-          </Link>
-        </Box>
+          </Box>
+        </Link>
           <Spacer />
         {mobile ? (
           <Menu>

@@ -66,20 +66,18 @@ const StoreTab = ({contato, horario, redes, site, ifood, pontoReferencia, endere
                 ))}
             </TabPanel>
             <TabPanel>
-                {horario?.map((item: any) => (
-                    <Text key={item.dia}>{item.dia}: {item.horario}</Text>
+                {horario?.map((item: any, index: number) => (
+                    <Text key={index}>{item.dia}: {item.horario.de ? `${item.horario.de}h - ${item.horario.ate}h` : item.horario}</Text>
                 ))}
             </TabPanel>
             <TabPanel>
                 <HStack spacing='4' my={4}>
-                    {redes?.map((item: any) => {
+                    {redes?.map((item: any, index: number) => {
                         const rede: string = item.rede
                         return (
-                            <>
-                             <Link href={item.link} color='red' isExternal target='_next'>
+                            <Link key={index} href={item.link} color='red' isExternal target='_next'>
                                 <IconButton size="md" fontSize="xs" width="4" aria-label={rede} icon={(redesIcon as any)[rede]?.icon} bg={(redesIcon as any)[rede]?.color} variant='solid' />
-                             </Link>
-                            </>
+                            </Link>
                         )
                     })}
                 </HStack>
@@ -101,7 +99,7 @@ const StoreTab = ({contato, horario, redes, site, ifood, pontoReferencia, endere
             <TabPanel>
                 <Flex direction='column'>
                     <Box pb={3}>
-                        Localização: {enderecoTexto}
+                        Localização: <Text layerStyle='description'>{enderecoTexto}</Text> 
                     </Box>
                     <Box pb={3}>
                         Ponto de referência: <Text layerStyle='description'>{pontoReferencia}</Text> 

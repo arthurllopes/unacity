@@ -16,7 +16,7 @@ const Gallery = ({data, title}: Props) => {
     const [windowWidth, setWindowWidth] = React.useState(0)
 
     const fullwidth = data?.length * 220
-    
+
     //Deal with resize
     React.useEffect(() => {
         function handleResize() {
@@ -83,9 +83,6 @@ const Gallery = ({data, title}: Props) => {
                                 alt={item.fields.description}
                                 width= {200}
                                 height= {220}
-                                borderRadius='10px'
-                                boxShadow='2xl'
-                                backgroundColor='black'
                             />
                         </Box>
                     ))}
