@@ -1,4 +1,4 @@
-import { Box, Center, Flex, HStack, Spacer, Text } from '@chakra-ui/react'
+import { Box, Center, Flex, Heading, HStack, Spacer, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CategoryNavItem from '../../fragments/categoryNavItem'
@@ -27,7 +27,7 @@ const CategoryNav = () => {
   return (
     <Box py={6}>
       <Flex>
-        <Text fontSize='2xl' layerStyle="title">Categorias</Text>
+        <Heading fontSize='2xl'>Categorias</Heading>
         <Spacer />
         <Text fontSize='md' color='blue' cursor="pointer" _hover={{ filter: "brightness(0.4)" }} >Ver todas</Text>
       </Flex>

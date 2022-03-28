@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, TabList, TabPanels, Tab, TabPanel, Text, Flex, HStack, Link, Button, IconButton } from '@chakra-ui/react'
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Text, Flex, HStack, Link, Button, IconButton, Box, VStack } from '@chakra-ui/react'
 import { ArrowBackIcon } from '@chakra-ui/icons'
 
 type Props = {
@@ -7,9 +7,12 @@ type Props = {
     horario: any[],
     redes: any[],
     site: string | null,
-    ifood: string | null | undefined
+    ifood: string | null | undefined,
+    pontoReferencia: string,
+    enderecoTexto: string,
+    endereco: any
 }
-const StoreTab = ({contato, horario, redes, site, ifood}: Props) => {
+const StoreTab = ({contato, horario, redes, site, ifood, pontoReferencia, endereco, enderecoTexto}: Props) => {
     const redesIcon = {
         facebook: {
             icon: <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" color='blue' className="bi bi-facebook" viewBox="0 0 16 16">
@@ -35,18 +38,22 @@ const StoreTab = ({contato, horario, redes, site, ifood}: Props) => {
                 <Tab fontWeight='500'>CONTATO</Tab>
                 <Tab fontWeight='500'>HORÁRIO</Tab>
                 <Tab fontWeight='500'>NOSSAS REDES</Tab>
+                <Tab fontWeight='500'>LOCALIZAÇÃO</Tab>
         </TabList>
         <TabPanels>
             <TabPanel >
                 {contato?.map((item: any) => (
-                    <HStack key={item.tel} pb={4} spacing='2'>
+                    <HStack key={item.tel} pb={3} spacing='2'>
                         {item.wpp ? (
-                            <>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" color='green' fill="currentColor" className="bi bi-whatsapp" viewBox="0 0 16 16">
-                                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                                </svg>
-                                <Link href={`https://wa.me/55${item.tel}`} isExternal target='_next'>: ({item?.tel.substring(2,0)}) {item?.tel.substring(2, item.tel.length - 4)}-{item?.tel.substring(item.tel.length - 4 )}</Link>
-                            </>
+                            <Box>
+                                <Flex alignItems='end'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" color='green' fill="currentColor" className="bi bi-whatsapp" viewBox="0 0 16 16">
+                                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                                    </svg>
+                                    <Link ml={2} color='teal.500' href={`https://wa.me/55${item.tel}`} isExternal target='_next'> : ({item?.tel.substring(2,0)}) {item?.tel.substring(2, item.tel.length - 4)}-{item?.tel.substring(item.tel.length - 4 )}</Link>
+                                </Flex>
+                                <Text as='span'  layerStyle='description'>Clique para entrar em contato pelo Whatsapp</Text>
+                            </Box>
                         ) : (
                             <>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
@@ -90,6 +97,19 @@ const StoreTab = ({contato, horario, redes, site, ifood}: Props) => {
                         </Text>
                     </>
                 }
+            </TabPanel>
+            <TabPanel>
+                <Flex direction='column'>
+                    <Box pb={3}>
+                        Localização: {enderecoTexto}
+                    </Box>
+                    <Box pb={3}>
+                        Ponto de referência: <Text layerStyle='description'>{pontoReferencia}</Text> 
+                    </Box>
+                    <Box>
+                        <Link href={`https://waze.com/ul?ll=${endereco?.lat},${endereco?.lon}&z=10`} color='teal.500' isExternal target='_next'>Abrir com Waze</Link>
+                    </Box>
+                </Flex>
             </TabPanel>
         </TabPanels>
     </>

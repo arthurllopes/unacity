@@ -5,7 +5,7 @@ import delivery from '../../assets/delivery.png'
 
 const DeliveryTag = () => {
   return (
-      <Badge variant='subtle' colorScheme='green' >
+      <Badge variant='solid' fontSize='.8rem' colorScheme='green' w='100%' h='100%' textAlign='center' display='flex' alignItems='center' justifyContent='center'>
         FAZEMOS ENTREGA
       </Badge>
   )
