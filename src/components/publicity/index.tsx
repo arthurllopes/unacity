@@ -3,7 +3,7 @@ import React from 'react'
 
 const Publicity = () => {
   return (
-    <Box bg="white" display='flex' minW='200px' h={200} flexDirection='column' alignItems='center' justifyContent='center' borderRadius={8} boxShadow='md'>
+    <Box bg="white" display='flex' minW='100%' h='100%' flexDirection='column' alignItems='center' justifyContent='center' borderRadius={8} boxShadow='md'>
       <Center p={2}>
         ANUNCIE AQUI
       </Center>

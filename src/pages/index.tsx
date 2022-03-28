@@ -34,12 +34,12 @@ const Home = ({initialData}: Props) => {
       </Head>
       <Box as="main" minH="100vh" maxW="100vw" display="flex" flexDirection="column" alignItems="center">
         <Header />
-        <Flex flex="1" pt={6} flexDirection={{base: 'column', md:'row'}}  w="90%" alignItems="center" justifyContent='space-between'>
-          <Box w='100%' p={4}>
+        <Flex flex="1" pt={4} flexDirection={{base: 'column', md:'row'}}  w="90%" alignItems="center" justifyContent='space-between'>
+          <Box w='100%' pb={4} pr={4}>
             <Featuring />
             {/*<SearchBox />*/}
           </Box >
-          <Box>
+          <Box w='360px' h='300px'>
             <Publicity />
           </Box >
         </Flex>
