@@ -19,9 +19,9 @@ const ServicesPage = () => {
       <Box as="main" minH="100vh" maxW="100vw" display="flex" flexDirection="column" alignItems="center">
         <Header />
         <Box flex={1}>
-          <Box>Parte inicial</Box>
-          <FuncoesNav />
-          <ServiceCardList />
+          <Box>EM CONSTRUÇÃO</Box>
+          {/*<FuncoesNav />
+          <ServiceCardList />*/}
         </Box>
         <Footer />
       </Box>

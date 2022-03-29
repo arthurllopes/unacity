@@ -12,7 +12,6 @@ type Props = {
 }
 const ProductCard = ({product}: Props) => {
   const router = useRouter()
-  console.log(product)
   const isOpen = useTime(product?.fields?.horario)
 
   return (

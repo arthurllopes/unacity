@@ -1,4 +1,5 @@
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react'
+import { logEvent } from 'firebase/analytics'
 import type { GetStaticProps, NextPage } from 'next'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
