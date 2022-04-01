@@ -5,6 +5,7 @@ export const useTime = (horarios: any[]) => {
         const hourNow = date.getHours()
         const todayHour = horarios[day]
         const {horario} = todayHour
+        
         //Caso o horario de funcionamento do dia anterior for ate a madrugada do outo dia
         //E o estabelecimento fique fechado o resto do dia
         if (!(horarios[day-1]?.ate > hourNow) && (horario === 'fechado')) {
