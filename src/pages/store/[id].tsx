@@ -20,7 +20,7 @@ const StorePage = () => {
   const [data, setData] = React.useState<any>()
   const [relatedStores, setRelatedStores] = React.useState<any>()
 
-  const isOpen = useTime(data?.horario)
+  const isOpen = useTime(data?.fields.horario)
 
   React.useEffect(() => {
     const getStore = async () => {
@@ -89,11 +89,16 @@ const StorePage = () => {
             </Box>
         </Flex>}
         {relatedStores?.length > 0 && 
-        <Grid w='100%' templateColumns={{base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)'}} justifyContent='center' p={6} gap={6} borderTop='1px solid #CBD5E0'>
-          {relatedStores?.map((item: any) => (
-            <ProductCard key={item.sys.id} product={item}/>
-          ))}
-        </Grid>}
+        <>
+          <VStack borderTop='1px solid #CBD5E0' w='90%'>
+            <Heading layerStyle="title" as='h2' size='md' pt={4} isTruncated>RELACIONADOS</Heading>
+            <Grid w='100%' templateColumns={{base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)'}} justifyContent='center' p={6} gap={6} mt='-20px' >
+              {relatedStores?.map((item: any) => (
+                <ProductCard key={item.sys.id} product={item}/>
+              ))}
+            </Grid>
+          </VStack>
+        </>}
       </VStack>
       <Footer />
     </VStack>

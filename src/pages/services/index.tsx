@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, Heading, Text, useMediaQuery } from '@chakra-ui/react'
 import Head from 'next/head'
 import React from 'react'
 import Footer from '../../components/footer'
@@ -9,7 +9,8 @@ import { GetStaticProps } from 'next'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts, setCategory, setInitialData, setProducts, setType } from '../../store/Category'
 import { RootState } from '../../store/configureStore'
-import ProductCardList from '../../components/cardList'
+import CardList from '../../components/cardList'
+import Image from 'next/image'
 
 type Props = {
   initialData: any,
@@ -35,6 +36,7 @@ const ServicesPage = ({ initialData, categories }: Props) => {
     dispatch(setProducts({items: initialData.items, total: initialData.total}))
     dispatch(setInitialData(initialData))
   }, [dispatch, initialData])
+  const [isLargerThan640] = useMediaQuery('(min-width: 640px)')
   return (
     <>
       <Head>
@@ -44,10 +46,22 @@ const ServicesPage = ({ initialData, categories }: Props) => {
       </Head>
       <Box as="main" minH="100vh" maxW="100vw" display="flex" flexDirection="column" alignItems="center">
         <Header />
-        <Box flex={1} w='90%'>
-          <CategoryNav categories={categories}/>
-          <ProductCardList data={initialData}/>
-        </Box>
+        <Flex flex={1} direction='column' justify='center' align='center' w='90%' pb={4}>
+          <Flex w='90%' justifyContent='space-between' align='center'>
+            <Box maxW={680} w='100%'>
+              <Heading pt={4} isTruncated>Profissional de ...</Heading>
+              <Text py={2}>Encontre diarista, carroceiro, limpador de piscina, jardineiro, pintor, mecânico, pedreiro, transporte particular e muito mais em Unamar!!!</Text>
+            </Box>
+            { isLargerThan640 && 
+            <Box pt={8} ml={20} w='40%'>
+              <Image src='https://www.ddoliservicos.com.br/wp-content/uploads/2021/02/ilustracao-profissionais-de-limpeza.png' width={350} height={350} alt={'Imagem de trabalhador'} objectFit='contain' />
+            </Box>}
+          </Flex>
+          <Box mt='-30px' w='100%' pt={4}>
+            <CategoryNav categories={categories}/>
+            <CardList data={initialData}/>
+          </Box>
+        </Flex>
         <Footer />
       </Box>
     </>

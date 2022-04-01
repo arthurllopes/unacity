@@ -1,4 +1,5 @@
 import { Badge, Box, Button, Center, Flex, GridItem, Text } from '@chakra-ui/react'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -12,6 +13,8 @@ type Props = {
 }
 const ProductCard = ({product}: Props) => {
   const router = useRouter()
+  const DynamicTimeTagComponent = dynamic(() => import('../../fragments/hourTag'),
+  { ssr: false })
   const isOpen = useTime(product?.fields?.horario)
 
   return (
@@ -23,7 +26,7 @@ const ProductCard = ({product}: Props) => {
         <Flex flexDirection='column' alignItems='start' ml={2}>
           <Text>{product.fields.nome}</Text>
           <Text layerStyle='description' pb={1}>{product.fields.titulo}</Text>
-          {isOpen && <HourTag />}
+          {isOpen && <DynamicTimeTagComponent />}
           {product.fields.delivery &&
           <Box>
             <DeliveryTag />

@@ -14,11 +14,11 @@ export const useTime = (horarios: any[]) => {
             //Caso esteja aberto o dia todo
             return true
         } 
-        else if (horario?.de <= hourNow < horario?.ate) {
+        else if ((horario?.de <= hourNow) && ((hourNow < horario?.ate) || (horario?.ate < 6))) {
             //Hora de agora precisa estar dentro do horario de funcionamento daquele dia
             return true
         } 
-        else if (horarios[day-1]?.ate > hourNow) {
+        else if ((horarios[day-1]?.ate < 6) && (horarios[day-1]?.ate > hourNow)) {
             //Caso o horario do dia anterior for ate 3 da manha do outro dia por exemplo
             //Vai verficar esse horario de fechamento do dia anterior com a hora atual do dia atual
             return true

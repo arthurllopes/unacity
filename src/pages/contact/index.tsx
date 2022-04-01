@@ -5,8 +5,10 @@ import ContactForm from '../../components/contactForm'
 import ContactInfo from '../../components/contactInfo'
 import Footer from '../../components/footer'
 import Header from '../../components/header'
+import { useTime } from '../../hooks/useTime'
 
 const ContactPage = () => {
+
   return (
     <>
       <Head>
