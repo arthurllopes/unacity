@@ -31,7 +31,7 @@ const ProductCard = ({product}: Props) => {
           }
         </Flex>
       </Flex>
-      <Center py={4}>
+      <Center pt={4} pb={2}>
           <Button w='70%' variant='solid' colorScheme='teal' color='white' >Saiba mais</Button>
       </Center>
     </GridItem>

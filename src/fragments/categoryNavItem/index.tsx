@@ -9,9 +9,9 @@ type Props = {
 };
 const CategoryNavItem = ({ item }: Props) => {
   const dispatch = useDispatch();
-  const { category } = useSelector((state: RootState) => state.Category);
+  const {type}= useSelector((state: RootState) => state.Category)
+  const {category}= useSelector((state: RootState) => (state as any).Category[type])
 
-  //console.log(item)
   return (
     <Flex
       alignItems="center"

@@ -7,7 +7,8 @@ import { RootState } from '../../store/configureStore'
 import ButtonFragment from './buttonFragment'
 
 const Pagination = () => {
-    const {limitPerPage, page, totalProducts} = useSelector((state: RootState) => state.Category)
+    const {limitPerPage, type} = useSelector((state: RootState) => state.Category)
+    const {page, totalProducts} = useSelector((state: RootState) => (state as any).Category[type])
     const dispatch = useDispatch()
 
     const siblingsCount = 1;

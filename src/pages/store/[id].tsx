@@ -33,7 +33,7 @@ const StorePage = () => {
   }, [id])
   React.useEffect(() => {
     const getRelated = async () => {
-      const related = await client.getEntries({content_type: 'barberin', 'metadata.tags.sys.id[in]': `${data.metadata.tags[0]?.sys.id}`, 'sys.id[ne]': `${data.sys.id}`, 'limit': 4, 'fields.related[in]': `${data?.fields.related}`})
+      const related = await client.getEntries({content_type: 'barberin', 'sys.id[ne]': `${data.sys.id}`, 'limit': 4, 'fields.related[in]': `${data?.fields.related}`})
       setRelatedStores(related.items)
     }
     if (data) {
@@ -44,7 +44,7 @@ const StorePage = () => {
     <VStack minH="100vh" >
       <Header />
       <VStack as="main" spacing='8' w="100%" flex={1} px={{base: '2', md: '4'}}>
-        <Stack align={{base: 'end', lg: 'start'}} p={{base: '2', md: '8'}} flexDirection={{base: 'column', lg: 'row'}}  borderBottom='1px solid #CBD5E0' >
+        <Stack align={{base: 'end', lg: 'start'}} p={{base: '2', md: '8'}} w='100%' flexDirection={{base: 'column', lg: 'row'}} justify='space-between' borderBottom='1px solid #CBD5E0' >
           <VStack >
             <Flex align='start' w='100%' >
               <Box minW="120px">
@@ -52,7 +52,7 @@ const StorePage = () => {
               </Box>
               <Flex align='start' px={2} w='100%' justify='space-between' direction='column'>
                 <Box>
-                  <Heading layerStyle="title">{data?.fields?.nome}</Heading>
+                  <Heading layerStyle="title" isTruncated>{data?.fields?.nome}</Heading>
                   <Text fontSize='xl' layerStyle="description">{data?.fields?.titulo}</Text>
                 </Box>
                 <Box w='180px' h='30px' pr={8} mb={6}>
@@ -63,7 +63,7 @@ const StorePage = () => {
             </Flex>
             <Text layerStyle='text' fontSize={{base: 'sm', md: 'xl'}} w='100%' >{data?.fields?.descricao}</Text>          
           </VStack>
-          <Flex w='100%' justify='center' minH={240} maxH={220} >
+          <Flex w='100%' minH={240} maxH={220} pl={4}>
             <Tabs w='100%'>
               <StoreTab contato={data?.fields?.contato} horario={data?.fields?.horario} redes={data?.fields?.redes} site={data?.fields?.site} ifood={data?.fields?.ifood} pontoReferencia={data?.fields?.pontoReferencia} endereco={data?.fields?.endereco} enderecoTexto={data?.fields?.enderecoTexto}/>
             </Tabs>
