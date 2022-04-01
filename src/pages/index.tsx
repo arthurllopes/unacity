@@ -50,12 +50,12 @@ const Home = ({initialData, categories}: Props) => {
       </Head>
       <Box as="main" minH="100vh" maxW="100vw" display="flex" flexDirection="column" alignItems="center">
         <Header />
-        <Flex flex="1" pt={4} flexDirection={{base: 'column', md:'row'}}  w="90%" alignItems="center" justifyContent='space-between'>
-          <Box w='100%' pb={4} pr={4}>
+        <Flex flex="1" pt={4} flexDirection={{base: 'column', md:'row'}} h='fit-content'  w="90%" alignItems="center" justifyContent='space-between'>
+          <Box w='100%' pb={4}>
             <Featuring />
             {/*<SearchBox />*/}
           </Box >
-          <Box w='360px' h='300px'>
+          <Box w='340px' h={{base: '100px', md:'300px'}} pl={{base: '0px', md:'10px'}}>
             <Publicity />
           </Box >
         </Flex>

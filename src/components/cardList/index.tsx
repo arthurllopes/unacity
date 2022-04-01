@@ -21,7 +21,7 @@ const CardList = ({data}: any) => {
         </Center>
       ) : (
         (prods?.length > 0 ) ? (
-          <Grid templateColumns={{base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)'}} justifyContent='center' gap={6} minH={200} >
+          <Grid templateColumns={{base: '1fr', md: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)'}} justifyContent='center' gap={6} minH={200} >
             {prods.map((item: any) => (
                 type === 'servico' ? (
                   <ServiceCard key={item.sys.id} item={item}/>

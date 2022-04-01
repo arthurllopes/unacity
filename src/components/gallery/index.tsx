@@ -4,6 +4,7 @@ import { Img } from '@chakra-ui/react'
 import Image from 'next/image'
 import PhotoModal from '../photoModal'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import Publicity from '../publicity'
 
 type Props = {
     data: any,
@@ -70,37 +71,44 @@ const Gallery = ({data, title}: Props) => {
           ].includes(prop),
     });
   return (
-      <>  
-        <Flex direction='column' w='100%' justify='center' boxShadow='xl' bg='whiteAlpha.700' borderRadius={8} align='start'>
-            <Heading as='h2' size='md' px={8} pt={4}>{title}</Heading>
-            <Flex w='100%'  justify='center' align='center' py={2} px={8} my={2}>
-                <HStack spacing='8' w='100%' overflowX='hidden' >
-                    {data?.map((item: any, index: any) => (
-                        <Box key={item.sys.id} minW={200} ml={`${position}px`} rounded='md' onClick={() => handleSelectImage(index)} transition='all ease .5s'  cursor='pointer' boxShadow='lg' >
-                            <Imagem
-                                objectFit='cover'
-                                src={`https:${item?.fields.file?.url}`}
-                                alt={item.fields.description}
-                                width= {200}
-                                height= {220}
-                            />
-                        </Box>
-                    ))}
-                </HStack>
-                    {!(windowWidth > fullwidth) && 
-                    <>
-                        <Button onClick={() => handleClick('preview')} bg='rgba(0, 0, 0, 0.6)' w='60px' zIndex={500} left='5' position='absolute' h='15%' fontSize= '2rem' color='white' _hover={{ opacity: "1" }}>
-                            <ArrowBackIcon />
-                        </Button>
-                        <Button onClick={() => handleClick('forward')} bg='rgba(0, 0, 0, 0.6)' w='60px' zIndex={500} right='5' position='absolute' h='15%' fontSize= '2rem' color='white' _hover={{ opacity: "1" }}>
-                            <ArrowForwardIcon />
-                        </Button>
-                    </> 
-                    }   
+    <>
+    <Flex w='100%' justify='center' direction={{base: 'column', xl: 'row'}} px={4}>
+        <Box w='100%'>
+            <Flex direction='column' w='100%' justify='center' boxShadow='xl' bg='whiteAlpha.700' borderRadius={8} align='start'>
+                <Heading as='h2' size='md' px={8} pt={4}>{title}</Heading>
+                <Flex w='100%'  justify='center' align='center' py={2} px={8} my={2}>
+                    <HStack spacing='8' w='100%' overflowX='hidden' >
+                        {data?.map((item: any, index: any) => (
+                            <Box key={item.sys.id} minW={200} ml={`${position}px`} rounded='md' onClick={() => handleSelectImage(index)} transition='all ease .5s'  cursor='pointer' boxShadow='lg' >
+                                <Imagem
+                                    objectFit='cover'
+                                    src={`https:${item?.fields.file?.url}`}
+                                    alt={item.fields.description}
+                                    width= {200}
+                                    height= {220}
+                                />
+                            </Box>
+                        ))}
+                    </HStack>
+                        {!(windowWidth > fullwidth) && 
+                        <>
+                            <Button onClick={() => handleClick('preview')} bg='rgba(0, 0, 0, 0.6)' w='60px' zIndex={500} left='5' position='absolute' h='8%' fontSize= '2rem' color='white' _hover={{ opacity: "1" }}>
+                                <ArrowBackIcon />
+                            </Button>
+                            <Button onClick={() => handleClick('forward')} bg='rgba(0, 0, 0, 0.6)' w='60px' zIndex={500} right='5' position='absolute' h='8%' fontSize= '2rem' color='white' _hover={{ opacity: "1" }}>
+                                <ArrowForwardIcon />
+                            </Button>
+                        </> 
+                        }   
+                </Flex>
             </Flex>
-        </Flex>
-        <PhotoModal image={image} setImage={setImage} data={data} onClose={onClose} isOpen={isOpen} />
-      </>
+        </Box>
+        <Box w={{base: '100%', xl: '40%'}} h={{base: '200px', xl: 'auto'}} mt={{base: '20px', xl: '0'}} ml={{base: '0', xl: '10'}}>
+          <Publicity />
+        </Box>
+    </Flex>
+    <PhotoModal image={image} setImage={setImage} data={data} onClose={onClose} isOpen={isOpen} />
+    </>
   )
 }
 

@@ -41,18 +41,18 @@ const StorePage = () => {
     }
   }, [data])
   return (
-    <VStack minH="100vh" >
+    <VStack minH="100vh" w='100vw' >
       <Header />
       <VStack as="main" spacing='8' w="100%" flex={1} px={{base: '2', md: '4'}}>
         <Stack align={{base: 'end', lg: 'start'}} p={{base: '2', md: '8'}} w='100%' flexDirection={{base: 'column', lg: 'row'}} justify='space-between' borderBottom='1px solid #CBD5E0' >
           <VStack >
             <Flex align='start' w='100%' >
-              <Box minW="120px">
+              <Box minW="80px">
                 {data?.fields?.logo && <Image src={`https:${data?.fields?.logo?.fields?.file?.url}`} alt={data?.fields.nome} width={160} height={160} objectFit='cover' />}
               </Box>
               <Flex align='start' px={2} w='100%' justify='space-between' direction='column'>
                 <Box>
-                  <Heading layerStyle="title" isTruncated>{data?.fields?.nome}</Heading>
+                  <Heading layerStyle="title">{data?.fields?.nome}</Heading>
                   <Text fontSize='xl' layerStyle="description">{data?.fields?.titulo}</Text>
                 </Box>
                 <Box w='180px' h='30px' pr={8} mb={6}>
@@ -63,36 +63,19 @@ const StorePage = () => {
             </Flex>
             <Text layerStyle='text' fontSize={{base: 'sm', md: 'xl'}} w='100%' >{data?.fields?.descricao}</Text>          
           </VStack>
-          <Flex w='100%' minH={240} maxH={220} pl={4}>
+          <Flex w='100%' minH={240} maxH={220}>
             <Tabs w='100%'>
               <StoreTab contato={data?.fields?.contato} horario={data?.fields?.horario} redes={data?.fields?.redes} site={data?.fields?.site} ifood={data?.fields?.ifood} pontoReferencia={data?.fields?.pontoReferencia} endereco={data?.fields?.endereco} enderecoTexto={data?.fields?.enderecoTexto}/>
             </Tabs>
           </Flex>
         </Stack>
-        {data?.fields?.catalogo && 
-          <Flex w='100%' justify='center' direction={{base: 'column', xl: 'row'}} px={8}  >
-            <Box w='100%' pr={4}>
-              <Gallery data={data?.fields?.catalogo} title="CATÁLOGO"/>
-            </Box>
-            <Box w={{base: '100%', xl: '40%'}} py={4}>
-              <Publicity />
-            </Box>
-          </Flex>
-        }
-        {data?.fields?.galeria && 
-        <Flex w='100%' justify='center' direction={{base: 'column', xl: 'row'}} px={8}>
-          <Box w='100%' pr={4}>
-            <Gallery data={data?.fields?.galeria} title="GALERIA DE FOTOS" />
-            </Box>
-            <Box w={{base: '100%', xl: '40%'}} py={4}>
-              <Publicity />
-            </Box>
-        </Flex>}
+        {data?.fields?.catalogo && <Gallery data={data?.fields?.catalogo} title="CATÁLOGO"/>}
+        {data?.fields?.galeria && <Gallery data={data?.fields?.galeria} title="GALERIA DE FOTOS" />}
         {relatedStores?.length > 0 && 
         <>
           <VStack borderTop='1px solid #CBD5E0' w='90%'>
             <Heading layerStyle="title" as='h2' size='md' pt={4} isTruncated>RELACIONADOS</Heading>
-            <Grid w='100%' templateColumns={{base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)'}} justifyContent='center' p={6} gap={6} mt='-20px' >
+            <Grid w='100%' templateColumns={{base: '1fr', md: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)'}} justifyContent='center' p={6} gap={6} mt='-20px' >
               {relatedStores?.map((item: any) => (
                 <ProductCard key={item.sys.id} product={item}/>
               ))}
