@@ -10,14 +10,14 @@ const ServiceCard = ({item}: any) => {
   console.log(item)
   return (
     <VStack align='start' bg='white' p={4} boxShadow='lg' borderRadius='8'>
-      <Text p={0} m={0}>{item.fields.nome}</Text>
-      <Text layerStyle='description' p={0} m={0}>{item.fields.area}</Text>
+      <Text>{item.fields.nome}</Text>
+      <Text layerStyle='description' fontSize='xl'>{item.fields.area}</Text>
       <Text>{item.fields.descricao}</Text>
 
         {item.fields.contato?.map((item: any) => {
           const telefone = item.tel || item.telefone
           return (
-          <HStack key={item.telefone} pb={3} spacing='2'>
+          <HStack key={item.telefone} spacing='1'>
             {item.wpp ? (
               <Box>
                 <Flex alignItems='center'>

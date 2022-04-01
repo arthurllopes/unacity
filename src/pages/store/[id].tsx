@@ -44,16 +44,16 @@ const StorePage = () => {
     <VStack minH="100vh" w='100vw' >
       <Header />
       <VStack as="main" spacing='8' w="100%" flex={1} px={{base: '2', md: '4'}}>
-        <Stack align={{base: 'end', lg: 'start'}} p={{base: '2', md: '8'}} w='100%' flexDirection={{base: 'column', lg: 'row'}} justify='space-between' borderBottom='1px solid #CBD5E0' >
-          <VStack >
-            <Flex align='start' w='100%' >
+        <Stack align='start' p={{base: '0', md: '2'}} flexDirection={{base: 'column', lg: 'row'}} justify='space-between' w='100%' borderBottom='1px solid #CBD5E0' >
+          <VStack>
+            <Flex align='center' w='100%' >
               <Box minW="80px">
-                {data?.fields?.logo && <Image src={`https:${data?.fields?.logo?.fields?.file?.url}`} alt={data?.fields.nome} width={160} height={160} objectFit='cover' />}
+                {data?.fields?.logo && <Image src={`https:${data?.fields?.logo?.fields?.file?.url}`} alt={data?.fields.nome} width={160} height={160} objectFit='contain' />}
               </Box>
-              <Flex align='start' px={2} w='100%' justify='space-between' direction='column'>
+              <Flex align='start' px={2} maxW='100%' justify='space-between' direction='column'>
                 <Box>
-                  <Heading layerStyle="title">{data?.fields?.nome}</Heading>
-                  <Text fontSize='xl' layerStyle="description">{data?.fields?.titulo}</Text>
+                  <Heading layerStyle="title" fontSize={{base: 'xl', md: '2xl'}}>{data?.fields?.nome}</Heading>
+                  <Text fontSize={{base: 'md', md: 'xl'}} layerStyle="description">{data?.fields?.titulo}</Text>
                 </Box>
                 <Box w='180px' h='30px' pr={8} mb={6}>
                   {isOpen && <HourTag />}
@@ -63,8 +63,8 @@ const StorePage = () => {
             </Flex>
             <Text layerStyle='text' fontSize={{base: 'sm', md: 'xl'}} w='100%' >{data?.fields?.descricao}</Text>          
           </VStack>
-          <Flex w='100%' minH={240} maxH={220}>
-            <Tabs w='100%'>
+          <Flex minH={250} maxH={220} w='100%' >
+            <Tabs colorScheme='teal' size='md' w={{base: '300px', md: '50%'}} isFitted>
               <StoreTab contato={data?.fields?.contato} horario={data?.fields?.horario} redes={data?.fields?.redes} site={data?.fields?.site} ifood={data?.fields?.ifood} pontoReferencia={data?.fields?.pontoReferencia} endereco={data?.fields?.endereco} enderecoTexto={data?.fields?.enderecoTexto}/>
             </Tabs>
           </Flex>

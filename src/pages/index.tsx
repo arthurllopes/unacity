@@ -55,7 +55,7 @@ const Home = ({initialData, categories}: Props) => {
             <Featuring />
             {/*<SearchBox />*/}
           </Box >
-          <Box w='340px' h={{base: '100px', md:'300px'}} pl={{base: '0px', md:'10px'}}>
+          <Box w='320px' h={{base: '90px', md:'300px'}} pl={{base: '0px', md:'10px'}}>
             <Publicity />
           </Box >
         </Flex>
