@@ -43,7 +43,7 @@ const StorePage = () => {
   return (
     <VStack minH="100vh" w='100vw' >
       <Header />
-      <VStack as="main" spacing='8' w="100%" flex={1} px={{base: '2', md: '4'}}>
+      <VStack as="main" spacing='8' w="100vw" flex={1} px={{base: '2', md: '4'}}>
         <Stack align='start' p={{base: '0', md: '2'}} flexDirection={{base: 'column', lg: 'row'}} justify='space-between' w='100%' borderBottom='1px solid #CBD5E0' >
           <VStack>
             <Flex align='center' w='100%' >
@@ -64,7 +64,7 @@ const StorePage = () => {
             <Text layerStyle='text' fontSize={{base: 'sm', md: 'xl'}} w='100%' >{data?.fields?.descricao}</Text>          
           </VStack>
           <Flex minH={250} maxH={220} w='100%' >
-            <Tabs colorScheme='teal' size='md' w={{base: '300px', md: '50%'}} isFitted>
+            <Tabs colorScheme='teal' size='sm' w={{base: '300px', md: '50%'}} isFitted>
               <StoreTab contato={data?.fields?.contato} horario={data?.fields?.horario} redes={data?.fields?.redes} site={data?.fields?.site} ifood={data?.fields?.ifood} pontoReferencia={data?.fields?.pontoReferencia} endereco={data?.fields?.endereco} enderecoTexto={data?.fields?.enderecoTexto}/>
             </Tabs>
           </Flex>

@@ -15,6 +15,7 @@ import SearchBox from '../fragments/searchBox'
 import { client } from '../services/contentful'
 import { getProducts, setCategory, setInitialData, setProducts, setType } from '../store/Category'
 import { RootState } from '../store/configureStore'
+import Script from 'next/script'
 
 type Props = {
   initialData: any,
@@ -41,16 +42,32 @@ const Home = ({initialData, categories}: Props) => {
     dispatch(setInitialData(initialData))
   }, [dispatch, initialData])
 
+  /*React.useEffect(() => {
+    var ads = document.getElementsByClassName("adsbygoogle").length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) { }
+    }
+}, []);*/
+
   return (
     <>
       <Head>
         <title>Comércios em Unamar</title>
         <meta name="description" content="Fique por dentro de todos os comércios e serviços prestados em Unamar. Encontre lanchonete, restaurante, sobremesas, salão de beleza, clínica, petshop, esporte. Veja seus horários de funcionamento, endereço, cardápio, se faz entrega. E muito mais" />
         <link rel="icon" href="/favicon.ico" />
+        {/*<script id="Adsense-id" data-ad-client="ca-pub-6157944097638212" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6157944097638212"
+        crossOrigin="anonymous"></script>
+        <ins className="adsbygoogle"
+        //style={{display: 'inline-block', width: '100%', height:'90px'}}
+        data-ad-client="ca-pub-6157944097638212"
+        data-ad-slot="1234567890"></ins>*/}
       </Head>
-      <Box as="main" minH="100vh" maxW="100vw" display="flex" flexDirection="column" alignItems="center">
+      
+      <Box as="main" minH="100vh" w='100vw' display="flex" flexDirection="column" alignItems="center">
         <Header />
-        <Flex flex="1" pt={4} flexDirection={{base: 'column', md:'row'}} h='fit-content'  w="90%" alignItems="center" justifyContent='space-between'>
+        <Flex flex="1" pt={4} flexDirection={{base: 'column', md:'row'}} h='fit-content' w="90%" alignItems="center" justifyContent='space-between'>
           <Box w='100%' pb={4}>
             <Featuring />
             {/*<SearchBox />*/}
@@ -65,6 +82,7 @@ const Home = ({initialData, categories}: Props) => {
         </Box>
         <Footer />
       </Box>
+
       
     </>
   )

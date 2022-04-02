@@ -7,7 +7,7 @@ import unaLogo from '../../assets/unaLogo.png'
 const Header = () => {
   const mobile = useBreakpointValue({ base: true, md: false })
   return (
-    <Container as="header" px={4} maxW="100vw" maxH="80px" display="flex" alignItems="center" bg="white" >
+    <Flex as="header" px={4} w="100vw" maxH="80px" align="center"  >
         <Link href="/" passHref>
           <Box className="unaLogo" mt={4} px={2} cursor='pointer'>
             <Image src={unaLogo} width={80} height={55} alt="Logo" objectFit='cover'/>
@@ -48,7 +48,7 @@ const Header = () => {
             </MenuList>
         </Menu>
         ) : (
-        <Flex as="nav" d="flex" alignItems="center" justifyContent="spaceBetween">
+        <Flex as="nav" alignItems="center" justify="spaceBetween">
           <Box px='2'>
             <Link href="/">
               Comércios
@@ -75,7 +75,7 @@ const Header = () => {
             </Link>
           </Box>
         </Flex>)}
-    </Container>
+    </Flex>
   )
 }
 

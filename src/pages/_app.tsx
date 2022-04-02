@@ -7,6 +7,8 @@ import store from '../store/configureStore'
 import { getAnalytics } from 'firebase/analytics'
 import { app } from '../services/firebase'
 import React from 'react'
+import Head from 'next/head'
+import Script from 'next/script'
 
 function MyApp({ Component, pageProps }: AppProps) {
   function reportWebVitals( metric: any) {
@@ -18,13 +20,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [])
   return (
-    <Provider store={store}>
-      <NavigateContextProvider>
-        <ChakraProvider theme={theme} >
-          <Component {...pageProps} />
-        </ChakraProvider>
-      </NavigateContextProvider>
-    </Provider>
+    <>
+      <Provider store={store}>
+        <NavigateContextProvider>
+          <ChakraProvider theme={theme} >
+            <Component {...pageProps} />
+          </ChakraProvider>
+        </NavigateContextProvider>
+      </Provider>
+    </>
   )
 }
 
