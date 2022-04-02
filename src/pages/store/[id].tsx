@@ -63,8 +63,8 @@ const StorePage = () => {
             </Flex>
             <Text layerStyle='text' fontSize={{base: 'sm', md: 'xl'}} w='100%' >{data?.fields?.descricao}</Text>          
           </VStack>
-          <Flex minH={250} maxH={220} w='100%' >
-            <Tabs colorScheme='teal' size='sm' w={{base: '300px', md: '50%'}} isFitted>
+          <Flex minH={250} maxH={220} w='100%'>
+            <Tabs variant='unstyled' colorScheme='teal' size='sm' isFitted>
               <StoreTab contato={data?.fields?.contato} horario={data?.fields?.horario} redes={data?.fields?.redes} site={data?.fields?.site} ifood={data?.fields?.ifood} pontoReferencia={data?.fields?.pontoReferencia} endereco={data?.fields?.endereco} enderecoTexto={data?.fields?.enderecoTexto}/>
             </Tabs>
           </Flex>

@@ -35,7 +35,7 @@ const StoreTab = ({contato, horario, redes, site, ifood, pontoReferencia, endere
     const renderTabs = () => {
         const tabs = ['CONTATO', 'HORÁRIO', 'NOSSAS REDES', 'LOCALIZAÇÃO' ]
         const tabsJSX = tabs.map((item: string) => (
-            <Tab key={item} fontSize={{base: '.75rem', md: '1rem'}} fontWeight='500'>{item}</Tab>
+            <Tab key={item} fontSize={{base: '.75rem', md: '1rem'}} borderBottom='2px solid white' p={2} _selected={{borderBottom: '2px solid teal' }} fontWeight='500'>{item}</Tab>
         ))
         return tabsJSX
     }

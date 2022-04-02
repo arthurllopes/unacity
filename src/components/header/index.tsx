@@ -7,7 +7,7 @@ import unaLogo from '../../assets/unaLogo.png'
 const Header = () => {
   const mobile = useBreakpointValue({ base: true, md: false })
   return (
-    <Flex as="header" px={4} w="100vw" maxH="80px" align="center"  >
+    <Flex as="header" px={4} w="100vw" maxH="80px" align="center" bg='white' >
         <Link href="/" passHref>
           <Box className="unaLogo" mt={4} px={2} cursor='pointer'>
             <Image src={unaLogo} width={80} height={55} alt="Logo" objectFit='cover'/>
