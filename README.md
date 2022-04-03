@@ -1,34 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- ABOUT THE PROJECT -->
+## About The Project
+<a href="https://www.comerciounamar.com/">View Application</a>
 
+![HOME1](https://user-images.githubusercontent.com/82395681/161436529-77dcfc77-e5c4-428c-8d3c-ca9ebb2395a9.png)
+
+Basically, the project is a platform to show stores and services available in a small city. 
+
+Here's why:
+* People from the city may be looking for a new store to buy from.
+* Be able to know if a store has delivery service, its contact information, localization, and its service hours.
+* Marketing for the store owners.
+
+### Built With
+
+* [Next.js](https://nextjs.org/)
+* [React.js](https://reactjs.org/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Redux](https://redux-toolkit.js.org/)
+* [Firebase](https://firebase.google.com/)
+* [Contentfull](https://www.contentful.com/)
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+For this project I also created a contract word file, and a registration form. If you want it, just send me an inbox message.
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+  * Contentfull
+  ```sh
+  Create account and organize. Create content, content model, tags and so on
+  ```
+  * Firebase (if you want google analytics)
+  ```sh
+  Create account and cofigure its services
+  ```
+
+### Installation
+
+1. Clone the repo
+    ```bash
+      $ git clone https://github.com/arthurllopes/unacity.git
+      $ cd unacity
+    ```
+  2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+<!-- USAGE EXAMPLES -->
+## Usage
+```
+# At project root, create a copy of the file .env.local.example
+# Change the copy name to .env.local
+# Fill the variables according to instructions
+$ cp .env.local.example .env.local
+
+
+# Run the application
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- CONTRIBUTING -->
+## Contributing
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+<!-- LICENSE -->
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Distributed under the MIT License. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+<!-- CONTACT -->
+## Author
+Made by Arthur Lopes 👋🏽 Get in touch!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
