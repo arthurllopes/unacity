@@ -4,7 +4,7 @@
 
 ![HOME1](https://user-images.githubusercontent.com/82395681/161436529-77dcfc77-e5c4-428c-8d3c-ca9ebb2395a9.png)
 
-Basically, the project is a platform to show stores and services available in a small city. 
+Basically, the project is a platform to show stores and services available in a small city. I also have a contact page to send directly emails to me which is working, I used Google smpt server to do so.
 
 Here's why:
 * People from the city may be looking for a new store to buy from.
